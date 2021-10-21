@@ -121,7 +121,7 @@ def main(cfg: DictConfig):
 
     policy_kwargs = {"activation_fn": nn.ReLU, "net_arch": [32]*5}
     #PPO_HYPERPARAM_KEYS = ('learning_rate', 'gamma', 'gae_lambda', 'ent_coef', 'vf_coef', 'max_grad_norm')
-    PPO_HYPERPARAM_KEYS = ('learning_rate', 'gamma', 'tau', 'train_freq', 'gradient_step', 'learning_starts')
+    PPO_HYPERPARAM_KEYS = ('learning_rate', 'gamma', 'tau', 'train_freq', 'gradient_steps', 'learning_starts')
     ppo_hyperparams_dict = {k: cfg[k] for k in PPO_HYPERPARAM_KEYS}
     #model = PPO(MlpPolicy, env, verbose=1, policy_kwargs=policy_kwargs, **ppo_hyperparams_dict)
     model = DDPG(MlpPolicy, env, verbose=1, policy_kwargs=policy_kwargs, **ppo_hyperparams_dict)
