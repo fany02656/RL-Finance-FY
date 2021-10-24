@@ -54,8 +54,8 @@ def get_training_environment(cfg: DictConfig, save_dir: str):
     reward_clip_range = (cfg['reward_clip_min'], cfg['reward_clip_max'])
     reward_records_save_path = os.path.join(save_dir, "reward_history.h5")
 
-    valid_actions = list(range(cfg['action_min'], cfg['action_max']+1))
-
+    #valid_actions = list(range(cfg['action_min'], cfg['action_max']+1))
+    valid_actions = (cfg['action_min'], cfg['action_max'])
     reward_function: RewardFunction = NaiveHedgingRewardFunction(
         kappa=cfg['reward_kappa'],
         initial_holdings=initial_holdings,
